@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<title>Calcular a Idade Media</title>
+		<script src="knockout-3.4.2.js" ></script>
+		<script src="classe.js" > </script>
+		<link rel="stylesheet" href="bootstrap.css">
+
+	<body>
+		<div class = "container">
+			<form data-bind="with:alunoDados">
+				<div class="form-group">
+					<label> Nome </label>
+						<input type="text" data-bind="value:nome" class="form-control"/>
+					<label> Idade </label>
+						<input type="text" data-bind="value:idade" class="form-control">
+				</div>
+				<button type="button" class="btn btn-primary" data-bind="click:$root.adicionarAluno"> Salvar </button>		
+			</form>
+			<table class = "table" >
+				<caption>A idade média dos alunos é: <span data-bind="text: calcularIdadeMedia"></span></caption>
+				<tr>
+					<th>
+					Nome
+					</th>
+					<th>
+					Idade
+					</th>
+				</tr>
+				<tbody data-bind = "foreach: alunos" >
+					<tr>
+						<td data-bind = "text: nome"></td>
+						<td data-bind = "text: idade"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<script>
+			var turma = new Turma();
+			ko.applyBindings(turma);
+		</script>
+	</body>
+</html> 
